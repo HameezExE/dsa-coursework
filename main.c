@@ -31,7 +31,9 @@ typedef struct Node
     struct Node *next;
 } Node;
 
-// Function prototypes needs to be implemented by each teammate
+// Function prototypes needs to be implemented by each team member
+
+Node* createNode(Student student); // Hameez
 
 void registerStudentList(Student student); // Dinil
 
@@ -56,6 +58,6 @@ int isCourseFull(); // Vihanga
 
 
 int main(){
-
+    // Hameez
     return 0;
 }
