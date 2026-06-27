@@ -61,3 +61,20 @@ int main(){
     // Hameez
     return 0;
 }
+
+Node* createNode(Student student)
+{
+    Node *new = (Node *)malloc(sizeof(Node));
+
+
+    if (new == NULL)
+    {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    new->data = student;
+    new->next = NULL;
+
+    return new;
+}
