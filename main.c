@@ -70,7 +70,7 @@ Node* createNode(Student student)
     if (new == NULL)
     {
         printf("Memory allocation failed!\n");
-        return 1;
+        exit(1);
     }
 
     new->data = student;
