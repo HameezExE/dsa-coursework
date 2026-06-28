@@ -56,6 +56,7 @@ Student inputStudent(); // Vihanga
 int countRegisteredStudents();
 int isCourseFull(); // Vihanga
 
+Node *registeredHead = NULL;
 
 int main(){
     // Hameez
@@ -77,4 +78,24 @@ Node* createNode(Student student)
     new->next = NULL;
 
     return new;
+}
+
+void registerStudentList(Student student)
+{
+    Node *newNode = createNode(student);
+
+    if (registeredHead == NULL)
+    {
+        registeredHead = newNode;
+        return;
+    }
+
+    Node *temp = registeredHead;
+
+    while (temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+
+    temp->next = newNode;
 }
