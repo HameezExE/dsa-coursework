@@ -31,6 +31,8 @@ typedef struct Node
     struct Node *next;
 } Node;
 
+Node *waitingFront = NULL;
+Node *waitingRear = NULL;
 // Function prototypes needs to be implemented by each team member
 
 Node* createNode(Student student); // Hameez
@@ -43,9 +45,71 @@ Node * searchStudent(int studentID); // Mohomed
 
 void displayRegisteredStudents(); // Chirath
 
-void enqueueWaiting(Student student); // Sadwew
-Student dequeueWaiting();
-void displayWaitingQueue(); // Sadwew
+void enqueueWaiting(Student student) // Sadew
+{
+    Node *newNode = createNode(student);
+
+    if (waitingRear == NULL)
+    {
+        waitingFront = newNode;
+        waitingRear = newNode;
+    }
+    else
+    {
+        waitingRear->next = newNode;
+        waitingRear = newNode;
+    }
+
+    printf("Student added to waiting queue successfully.\n");
+}
+
+Student dequeueWaiting()
+{
+    Student emptyStudent;
+    emptyStudent.id = -1;
+    emptyStudent.name[0] = '\0';
+
+    if (waitingFront == NULL)
+    {
+        printf("Waiting queue is empty.\n");
+        return emptyStudent;
+    }
+
+    Node *temp = waitingFront;
+    Student removedStudent = temp->data;
+
+    waitingFront = waitingFront->next;
+
+    if (waitingFront == NULL)
+    {
+        waitingRear = NULL;
+    }
+
+    free(temp);
+
+    return removedStudent;
+}
+
+void displayWaitingQueue() { // Sadew
+    if (waitingFront == NULL)
+    {
+        printf("Waiting queue is empty.\n");
+        return;
+    }
+
+    Node *current = waitingFront;
+
+    printf("\n--- Waiting Queue ---\n");
+
+    while (current != NULL)
+    {
+        printf("Student ID: %d\n", current->data.id);
+        printf("Student Name: %s\n", current->data.name);
+        printf("----------------------\n");
+
+        current = current->next;
+    }
+}
 
 void pushDropHistory(Student student); // Hirusha
 Student popDropHistory();
