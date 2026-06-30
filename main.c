@@ -33,11 +33,12 @@ typedef struct Node
 
 Node *waitingFront = NULL;
 Node *waitingRear = NULL;
+
 // Function prototypes needs to be implemented by each team member
 
 Node* createNode(Student student); // Hameez
 
-void registerStudentList(Student student); // Dinil
+void registerStudentList(Student student); // Dinil - DONE
 
 Student removeRegisteredStudent(int studentID); // Yohan
 
@@ -45,10 +46,10 @@ Node * searchStudent(int studentID); // Mohomed
 
 void displayRegisteredStudents(); // Chirath
 
-void enqueueWaiting(Student student); // Sadew
-void displayWaitingQueue(); // Saddew
+void enqueueWaiting(Student student); // Sadew - DONE
+void displayWaitingQueue(); //  Sadew - DONE
 
-Student dequeueWaiting(); //Shalitha
+Student dequeueWaiting(); //Shalitha - DONE
 
 
 void pushDropHistory(Student student); // Hirusha
@@ -84,7 +85,7 @@ Node* createNode(Student student)
     return new;
 }
 
-void registerStudentList(Student student)
+void registerStudentList(Student student) // Dinil
 {
     Node *newNode = createNode(student);
 
@@ -103,6 +104,7 @@ void registerStudentList(Student student)
 
     temp->next = newNode;
 }
+
 void enqueueWaiting(Student student) // Sadew
 {
     Node *newNode = createNode(student);
