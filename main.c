@@ -63,7 +63,7 @@ void enqueueWaiting(Student student) // Sadew
     printf("Student added to waiting queue successfully.\n");
 }
 
-Student dequeueWaiting()
+Student dequeueWaiting()//Shalitha
 {
     Student emptyStudent;
     emptyStudent.id = -1;
