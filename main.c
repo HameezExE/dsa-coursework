@@ -45,6 +45,44 @@ Node * searchStudent(int studentID); // Mohomed
 
 void displayRegisteredStudents(); // Chirath
 
+void enqueueWaiting(Student student); // Sadew
+void displayWaitingQueue(); // Saddew
+
+Student dequeueWaiting(); //Shalitha
+
+
+void pushDropHistory(Student student); // Hirusha
+Student popDropHistory();
+void displayDropHistory(); // Hirusha
+
+
+Student inputStudent(); // Vihanga
+int countRegisteredStudents();
+int isCourseFull(); // Vihanga
+
+
+int main(){
+    // Hameez
+    return 0;
+}
+
+Node* createNode(Student student)
+{
+    Node *new = (Node *)malloc(sizeof(Node));
+
+
+    if (new == NULL)
+    {
+        printf("Memory allocation failed!\n");
+        exit(1);
+    }
+
+    new->data = student;
+    new->next = NULL;
+
+    return new;
+}
+
 void enqueueWaiting(Student student) // Sadew
 {
     Node *newNode = createNode(student);
@@ -109,36 +147,4 @@ void displayWaitingQueue() { // Sadew
 
         current = current->next;
     }
-}
-
-void pushDropHistory(Student student); // Hirusha
-Student popDropHistory();
-void displayDropHistory(); // Hirusha
-
-
-Student inputStudent(); // Vihanga
-int countRegisteredStudents();
-int isCourseFull(); // Vihanga
-
-
-int main(){
-    // Hameez
-    return 0;
-}
-
-Node* createNode(Student student)
-{
-    Node *new = (Node *)malloc(sizeof(Node));
-
-
-    if (new == NULL)
-    {
-        printf("Memory allocation failed!\n");
-        exit(1);
-    }
-
-    new->data = student;
-    new->next = NULL;
-
-    return new;
 }
