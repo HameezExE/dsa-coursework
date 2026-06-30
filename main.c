@@ -30,7 +30,7 @@ typedef struct Node
     Student data;
     struct Node *next;
 } Node;
-
+Node *registeredHead = NULL;
 Node *waitingFront = NULL;
 Node *waitingRear = NULL;
 
@@ -40,7 +40,41 @@ Node* createNode(Student student); // Hameez
 
 void registerStudentList(Student student); // Dinil - DONE
 
-Student removeRegisteredStudent(int studentID); // Yohan
+Student removeRegisteredStudent(int studentID){
+
+
+    Student empty = {-1, ""};
+
+    Node *temp = registeredHead;
+    Node *prev = NULL;
+
+    while(temp != NULL)
+    {
+     if(temp->data.id == studentID)
+        {
+            Student removed = temp->data;
+
+            if(prev == NULL)
+            {
+                registeredHead = temp->next;
+            }
+            else
+            {
+                prev->next = temp->next;
+            }
+
+            free(temp);
+
+            return removed;
+        }
+
+        prev = temp;
+        temp = temp->next;
+    }
+
+    return empty;
+
+} // Yohan
 
 Node * searchStudent(int studentID); // Mohomed
 
