@@ -226,6 +226,9 @@ Student removeRegisteredStudent(int studentID){
 //hirusha
 void pushDropHistory(Student student) {
     StackNode* newNode = (Node*)malloc(sizeof(Node));
+// Hirusha
+void pushDropHistory(Student student) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
     if (newNode == NULL) {
         printf("Memory allocation failed. Could not record drop.\n");
         return;
@@ -235,6 +238,7 @@ void pushDropHistory(Student student) {
     newNode->next = dropHistoryTop;   
     dropHistoryTop = newNode;         
 
+    dropHistoryTop = newNode;        
     printf("Student %d (%s) added to drop history.\n", student.id, student.name);
 }
 
