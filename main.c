@@ -8,7 +8,7 @@
 
 // Define student struct: name, id
 
-// Linked list for student registered list: add, remove, search by id, display
+// Linked list for student registered list: add, remove, search by id and display
 // Linked list queue for waiting list: add when registration is full, remove when space is available, display
 // Linked list stack for drop history: push when a student drops, pop when a student undo it, display
 //
@@ -30,6 +30,9 @@ typedef struct Node
     Student data;
     struct Node *next;
 } Node;
+
+
+
 Node *registeredHead = NULL;
 Node *waitingFront = NULL;
 Node *waitingRear = NULL;
@@ -203,4 +206,21 @@ void displayWaitingQueue() { // Sadew
 
         current = current->next;
     }
+}
+
+Node * searchStudent(int studentID){ // mohamed
+   
+    Node *current = registeredHead;
+
+    while(current != NULL){
+        if(current->data->id == studentID){
+            return current;
+        }
+        
+        current = current->next;
+    }
+
+    return NULL;
+    
+
 }
