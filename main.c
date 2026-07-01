@@ -186,7 +186,27 @@ Node * searchStudent(int studentID){ // mohamed
 
     return NULL;
 }
+void displayRegisteredStudents() // Chirath
+{
+    if (registeredHead == NULL)
+    {
+        printf("No students are currently registered.\n");
+        return;
+    }
 
+    Node *current = registeredHead;
+
+    printf("\n--- Registered Students ---\n");
+    
+    while (current != NULL)
+    {
+        printf("Student ID: %d\n", current->data.id);
+        printf("Student Name: %s\n", current->data.name);
+        printf("---------------------------\n");
+        
+        current = current->next;
+    }
+}
 Student removeRegisteredStudent(int studentID){
 
 
