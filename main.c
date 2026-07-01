@@ -45,7 +45,7 @@ void registerStudentList(Student student); // Dinil - DONE
 
 Node * searchStudent(int studentID); // Mohomed - DONE
 
-void displayRegisteredStudents(); // Chirath
+void displayRegisteredStudents(); // Chirath -Done
 
 void enqueueWaiting(Student student); // Sadew - DONE
 void displayWaitingQueue(); //  Sadew - DONE
