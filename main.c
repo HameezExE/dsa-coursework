@@ -222,3 +222,51 @@ Student removeRegisteredStudent(int studentID){
     return empty;
 
 } // Yohan
+// Hirusha
+void pushDropHistory(Student student) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    if (newNode == NULL) {
+        printf("Memory allocation failed. Could not record drop.\n");
+        return;
+    }
+
+    newNode->data = student;
+    newNode->next = dropHistoryTop;   
+    dropHistoryTop = newNode;        
+    printf("Student %d (%s) added to drop history.\n", student.id, student.name);
+}
+
+
+Student popDropHistory() {
+    Student empty = {-1, ""}; 
+
+    if (dropHistoryTop == NULL) {
+        printf("Drop history is empty. Nothing to undo.\n");
+        return empty;
+    }
+
+    Node* temp = dropHistoryTop;
+    Student poppedStudent = temp->data;
+
+    dropHistoryTop = dropHistoryTop->next;  
+    free(temp);
+
+    return poppedStudent;
+}
+
+
+void displayDropHistory() {
+    if (dropHistoryTop == NULL) {
+        printf("Drop history is empty.\n");
+        return;
+    }
+
+    printf("\n--- Drop History (most recent first) ---\n");
+    Node* current = dropHistoryTop;
+    while (current != NULL) {
+        printf("ID: %d, Name: %s\n", current->data.id, current->data.name);
+        current = current->next;
+    }
+    printf("-----------------------------------------\n");
+}
+//hirusha
