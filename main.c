@@ -222,6 +222,10 @@ Student removeRegisteredStudent(int studentID){
     return empty;
 
 } // Yohan
+
+//hirusha
+void pushDropHistory(Student student) {
+    StackNode* newNode = (Node*)malloc(sizeof(Node));
 // Hirusha
 void pushDropHistory(Student student) {
     Node* newNode = (Node*)malloc(sizeof(Node));
@@ -232,6 +236,8 @@ void pushDropHistory(Student student) {
 
     newNode->data = student;
     newNode->next = dropHistoryTop;   
+    dropHistoryTop = newNode;         
+
     dropHistoryTop = newNode;        
     printf("Student %d (%s) added to drop history.\n", student.id, student.name);
 }
