@@ -39,47 +39,11 @@ Node *waitingRear = NULL;
 
 // Function prototypes needs to be implemented by each team member
 
-Node* createNode(Student student); // Hameez
+Node* createNode(Student student); // Hameez - DONE 
 
 void registerStudentList(Student student); // Dinil - DONE
 
-Student removeRegisteredStudent(int studentID){
-
-
-    Student empty = {-1, ""};
-
-    Node *temp = registeredHead;
-    Node *prev = NULL;
-
-    while(temp != NULL)
-    {
-     if(temp->data.id == studentID)
-        {
-            Student removed = temp->data;
-
-            if(prev == NULL)
-            {
-                registeredHead = temp->next;
-            }
-            else
-            {
-                prev->next = temp->next;
-            }
-
-            free(temp);
-
-            return removed;
-        }
-
-        prev = temp;
-        temp = temp->next;
-    }
-
-    return empty;
-
-} // Yohan
-
-Node * searchStudent(int studentID); // Mohomed
+Node * searchStudent(int studentID); // Mohomed - DONE
 
 void displayRegisteredStudents(); // Chirath
 
@@ -221,6 +185,40 @@ Node * searchStudent(int studentID){ // mohamed
     }
 
     return NULL;
-    
-
 }
+
+Student removeRegisteredStudent(int studentID){
+
+
+    Student empty = {-1, ""};
+
+    Node *temp = registeredHead;
+    Node *prev = NULL;
+
+    while(temp != NULL)
+    {
+     if(temp->data.id == studentID)
+        {
+            Student removed = temp->data;
+
+            if(prev == NULL)
+            {
+                registeredHead = temp->next;
+            }
+            else
+            {
+                prev->next = temp->next;
+            }
+
+            free(temp);
+
+            return removed;
+        }
+
+        prev = temp;
+        temp = temp->next;
+    }
+
+    return empty;
+
+} // Yohan
