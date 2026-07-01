@@ -36,6 +36,7 @@ typedef struct Node
 Node *registeredHead = NULL;
 Node *waitingFront = NULL;
 Node *waitingRear = NULL;
+Node *dropHistoryTop = NULL;
 
 // Function prototypes needs to be implemented by each team member
 
@@ -62,7 +63,8 @@ Student inputStudent(); // Vihanga
 int countRegisteredStudents();
 int isCourseFull(); // Vihanga
 
-Node *registeredHead = NULL;
+Student removeRegisteredStudent(int studentID);
+
 
 int main(){
     // Hameez
@@ -177,7 +179,7 @@ Node * searchStudent(int studentID){ // mohamed
     Node *current = registeredHead;
 
     while(current != NULL){
-        if(current->data->id == studentID){
+        if(current->data.id == studentID){
             return current;
         }
         
@@ -186,6 +188,7 @@ Node * searchStudent(int studentID){ // mohamed
 
     return NULL;
 }
+
 void displayRegisteredStudents() // Chirath
 {
     if (registeredHead == NULL)
@@ -207,6 +210,7 @@ void displayRegisteredStudents() // Chirath
         current = current->next;
     }
 }
+
 Student removeRegisteredStudent(int studentID){
 
 
@@ -243,10 +247,7 @@ Student removeRegisteredStudent(int studentID){
 
 } // Yohan
 
-//hirusha
-void pushDropHistory(Student student) {
-    StackNode* newNode = (Node*)malloc(sizeof(Node));
-// Hirusha
+
 void pushDropHistory(Student student) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     if (newNode == NULL) {
