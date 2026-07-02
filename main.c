@@ -222,3 +222,27 @@ Student removeRegisteredStudent(int studentID){
     return empty;
 
 } // Yohan
+
+int countRegisteredStudents()
+{
+    int count = 0;
+    Node *current = registeredHead;
+
+    while (current != NULL)
+    {
+        count++;
+        current = current->next;
+    }
+
+    return count;
+}
+
+int isCourseFull()
+{
+    if (countRegisteredStudents() >= MAX_REG)
+    {
+        return 1;
+    }
+
+    return 0;
+}
